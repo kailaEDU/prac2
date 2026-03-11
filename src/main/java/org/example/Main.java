@@ -1,11 +1,14 @@
+package org.example;
+import java.util.ArrayList;
+import java.util.Scanner;
 public class Main {
     //main class is the entry point of the application which has a loop to display the menu to ask the user to log in, sign up, or exit. it has a static
-    //arraylist<user> to store the users, wiuth a single user (username: "test" password "test", added by default. the main method will define a mock
+    //arraylist<user> to store the users, wiuth a single user username: "test" password "test", added by default. the main method will define a mock
     // IAuthenticationService anonymously that will alwasy return the first user in the abopve list when logIn is called,
     //and returns null when signUp is called
 
     //static list of users, acting as a database
-    private static ArrayList<User> users = new ArrayLists<>();
+    private static ArrayList<User> users = new ArrayList<>();
 
     //mock authentication service that always returns the first user when log in, and does nothing when sign up
     private static IAuthenticationService authService = new IAuthenticationService() {
@@ -76,6 +79,8 @@ public class Main {
         User user = authService.logIn(username, password);
         System.out.println("Welcome, " + user.getUsername() + "!");
         // TODO Later: Add the to-do list operations
+        ToDoList toDoList = new ToDoList(user);
+        toDoList.run();
     }
 
     /**
@@ -89,6 +94,11 @@ public class Main {
         String password = scanner.nextLine();
         User user = authService.signUp(username, password);
         // TODO Later: Shows a message based on the result
+        if (user != null) {
+            System.out.println("Account created successfully! Welcome, " + user.getUsername() + "!");
+        } else {
+            System.out.println("Sign up failed. Please try again.");
+        }
     }
     /**
      * Exits the application by setting the `isRunning` flag to false.
