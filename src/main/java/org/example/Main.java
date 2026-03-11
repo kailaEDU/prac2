@@ -95,9 +95,9 @@ public class Main {
         User user = authService.signUp(username, password);
         // TODO Later: Shows a message based on the result
         if (user != null) {
-            System.out.println("Account created successfully! Welcome, " + user.getUsername() + "!");
+            System.out.println("User <username> has been created successfully!");
         } else {
-            System.out.println("Sign up failed. Please try again.");
+            System.out.println("The username is already taken!");
         }
     }
     /**
