@@ -1,7 +1,3 @@
-package org.example;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     //main class is the entry point of the application which has a loop to display the menu to ask the user to log in, sign up, or exit. it has a static
     //arraylist<user> to store the users, wiuth a single user (username: "test" password "test", added by default. the main method will define a mock
